@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<head>
+  <meta charset="UTF-8" />
+  <title>Formulário de Login e Registro com HTML5 e CSS3</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />
+</head>
+<body>
+
+
+<div class="login-page">
+  <div class="form">
+    <form class="register-form" action="{{'/login/submit/'}}">
+      <input type="text" placeholder="name"/>
+      <input type="password" placeholder="password"/>
+      <input type="text" placeholder="email address"/>
+      <button>create</button>
+      <p class="message">Already registered? <a href="#">Sign In</a></p>
+    </form>
+    <form class="login-form">
+      <input type="text" placeholder="username"/>
+      <input type="password" placeholder="password"/>
+      <button>Signin</button>
+      <p class="message">Not registered? <a href="{{ 'signup/' }}">Create an account</a></p>
+    </form>
+  </div>
+</div>
+<script>
+
+
+$('.message a').click(function(){
+   $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+});
+
+
+
+</script>
+</body>
+</html>
