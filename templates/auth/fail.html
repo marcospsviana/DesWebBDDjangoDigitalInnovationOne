@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="login-page">
+<div class="form">
+<h3> Falha na autenticação </h3>
+    <p>
+        Verifique se forneceu o e-mail e ou a senha corretamente e tente novamente!
+    </p>
+
+    <a href="{{ '/auth/login/' }}"> Voltar </a>
+</div>
+</div>
+</body>
+</html>

@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import RedirectView
-
+from core import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('core.urls'), name='agenda'),
+    path('agenda/', views.lista_eventos),
+    path('auth/', include('core.urls')),
     path('', RedirectView.as_view(url='/agenda/')),
+
 ]

@@ -9,32 +9,39 @@
 <body>
 
 
-<div class="login-page">
-  <div class="form">
-    <form class="register-form" action="{{'/login/submit/'}}">
-      <input type="text" placeholder="name"/>
-      <input type="password" placeholder="password"/>
-      <input type="text" placeholder="email address"/>
-      <button>create</button>
-      <p class="message">Already registered? <a href="#">Sign In</a></p>
-    </form>
-    <form class="login-form">
-      <input type="text" placeholder="username"/>
-      <input type="password" placeholder="password"/>
-      <button>Signin</button>
-      <p class="message">Not registered? <a href="{{ 'signup/' }}">Create an account</a></p>
-    </form>
+  <div class="login-page">
+    <div class="form">
+      <form class="register-form" action="{{'/auth/login/'}}" method="POST">
+        {% csrf_token %}
+        <input type="text" placeholder="name"/>
+        <input type="password" placeholder="password"/>
+        <input type="text" placeholder="email address"/>
+        <button>create</button>
+        <p class="message">Already registered? <a href="{{ '/auth/login/' }}">Sign In</a></p>
+      </form>
+      <form class="login-form"  action="{{ '/auth/submit/' }}" method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="email address" name="email"/>
+        <input type="password" placeholder="password" name="password"/>
+        <button>Signin</button>
+        <p class="message">Not registered? <a href="{{'/auth/signup/'}}">Create an account</a></p>
+      </form>
+      <div style="color: rgb(255, 0, 0)">
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+      </div>
+    </div>
   </div>
-</div>
-<script>
+  <script>
 
 
-$('.message a').click(function(){
-   $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
-});
+  $('.message a').click(function(){
+     $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+  });
 
 
 
-</script>
+  </script>
 </body>
 </html>
