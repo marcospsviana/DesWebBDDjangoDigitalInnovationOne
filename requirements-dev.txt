@@ -26,5 +26,7 @@ pyparsing==2.4.7
     # via packaging
 pytest==6.2.4
     # via -r requirements-dev.in
+python-decouple==3.4
+    # via -r requirements-dev.in
 toml==0.10.2
     # via pytest
