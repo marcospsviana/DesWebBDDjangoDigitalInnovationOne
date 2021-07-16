@@ -1,10 +1,13 @@
+import uuid
 from http.client import HTTPResponse
 
 from django.shortcuts import render, redirect
+
+import core.models
 from core.models import Events
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
-from django.http import HttpResponseBadRequest
+from django.contrib.auth.hashers import make_password
 from django.contrib import messages
 
 
@@ -52,6 +55,26 @@ def submit_login(request):
 
 def signut_user(request):
     return render(request, 'auth/signup.html')
+
+
+def create_user(request):
+    if request.POST:
+        if request.POST:
+            email = request.POST.get('email')
+            password = request.POST.get('password')
+            password_confirm = request.POST.get('password_confirm')
+            if email and password == password_confirm:
+                password = make_password(password)
+                user = core.models.User(email=email, password=password)
+                user.save()
+                return redirect('/')
+            else:
+                return messages.error(request, 'Ocorreu um erro no cadastro!')
+    return redirect('/')
+
+
+
+
 
 
 def fail(request):
