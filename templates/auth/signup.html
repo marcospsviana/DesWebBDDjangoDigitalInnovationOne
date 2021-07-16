@@ -11,22 +11,27 @@
 
 <div class="login-page">
   <div class="form">
-    <form class="register-form">
-      <input type="text" placeholder="name"/>
-      <input type="password" placeholder="password"/>
-      <input type="text" placeholder="email address"/>
-      <button>create</button>
-      <p class="message">Already registered? <a href="#">Sign In</a></p>
-    </form>
-    <form class="login-form" action="{{'/login/submit/'}}">
-      <input type="text" placeholder="username"/>
-      <input type="email" placeholder="email"/>
-      <input type="password" placeholder="password"/>
-      <input type="password" placeholder="password repeat"/>
+<!--    <form class="register-form">-->
+<!--      <input type="text" placeholder="name"/>-->
+<!--      <input type="password" placeholder="password"/>-->
+<!--      <input type="text" placeholder="email address"/>-->
+<!--      <button>create</button>-->
+<!--      <p class="message">Already registered? <a href="#">Sign In</a></p>-->
+<!--    </form>-->
+    <form class="login-form" action="{{'/auth/register/'}}" method="POST"> {% csrf_token %}
+<!--      <input type="text" placeholder="username"/>-->
+      <input type="email" placeholder="email" name="email"/>
+      <input type="password" placeholder="password" name="password"/>
+      <input type="password" placeholder="password repeat" name="password_confirm"/>
       <button>Signup</button>
-      <p class="message">Already registered? <a href="{{'/login/'}}">Signin in your account</a></p>
+      <p class="message">Already registered? <a href="{{'/auth/login/'}}">Signin in your account</a></p>
     </form>
   </div>
+  <div align="center">
+  {% for message in messages %}
+  {{ message }}
+  {% endfor %}
+    </div>
 </div>
 <script>
 
