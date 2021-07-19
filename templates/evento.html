@@ -1,4 +1,24 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<div class="login-page">
+
+    <form class="form">
+      <div class="row">
+      
+        <div class="input-field col s12 m6">
+        <div class="card marfin lighter">
+        <div class="card-content white-text">
+      <input type="text" placeholder="Título" class="input-field white-text" />
+      <textarea type="text" placeholder="Descrição" class="materialize-textarea white-text"/>
+      </textarea>
+          <label for="textarea1">Textarea</label>
+      <input type="date" placeholder="data do evento"/>
+      <button class="button">Salvar</button>
+      </div>
+      </div>
+    </form>
+  
+  </div>
+</div>
 {% endblock %}
