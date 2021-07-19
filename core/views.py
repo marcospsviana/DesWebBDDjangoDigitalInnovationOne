@@ -19,7 +19,6 @@ def lista_eventos(request):
     else:
         return redirect('/auth/login/')
 
-    # return render(request, 'agenda.html', context={"eventos": evento})
 
 
 def login_user(request):
@@ -73,6 +72,21 @@ def create_user(request):
     return redirect('/')
 
 
+def update_or_create_event(request):
+    if request.POST:
+        event = Events.objects.get(id=id_event)
+        user = request.user
+        if event:
+            if user == event.user:
+                event.update()
+            else:
+                return redirect('/fail/')
+        else:
+            event.save()
+    
+    return render(request, 'evento.html')
+       
+            
 
 
 
