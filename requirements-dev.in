@@ -1,4 +1,4 @@
 pytest
 flake8
-python-decouple
 black
+pytest-cov
