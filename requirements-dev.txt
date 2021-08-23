@@ -131,10 +131,6 @@ pytest-cov==2.12.1 \
     --hash=sha256:261bb9e47e65bd099c89c3edf92972865210c36813f80ede5277dceb77a4a62a \
     --hash=sha256:261ceeb8c227b726249b376b8526b600f38667ee314f910353fa318caa01f4d7
     # via -r requirements-dev.in
-python-decouple==3.4 \
-    --hash=sha256:2e5adb0263a4f963b58d7407c4760a2465d464ee212d733e2a2c179e54c08d8f \
-    --hash=sha256:a8268466e6389a639a20deab9d880faee186eb1eb6a05e54375bdf158d691981
-    # via -r requirements-dev.in
 
 regex==2021.8.3 \
     --hash=sha256:026beb631097a4a3def7299aa5825e05e057de3c6d72b139c37813bfa351274b \
